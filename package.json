@@ -1,0 +1,92 @@
+{
+  "name": "math-float32-from-word",
+  "version": "0.0.0",
+  "description": "Creates a single-precision floating-point number from an unsigned integer corresponding to an IEEE 754 binary representation.",
+  "author": {
+    "name": "Athan Reines",
+    "email": "kgryte@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Athan Reines",
+      "email": "kgryte@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "if [ \"${TRAVIS}\" ]; then npm run test-ci; else npm run test-local; fi",
+    "test-local": "tape \"./test/*.js\" | tap-spec",
+    "test-ci": "npm run test-local && xvfb-run npm run test-browsers",
+    "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- \"./test/*.js\"",
+    "test-browsers": "browserify ./test/*.js | testling | tap-spec",
+    "coverage": "istanbul cover --dir ./reports/codecov/coverage --report lcovonly tape -- \"./test/*.js\" && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
+  },
+  "main": "./lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/math-io/float32-from-word.git"
+  },
+  "keywords": [
+    "compute.io",
+    "compute-io",
+    "computation",
+    "compute",
+    "math-io",
+    "math.io",
+    "math",
+    "convert",
+    "floating-point",
+    "float32",
+    "single",
+    "float",
+    "from",
+    "bits",
+    "uint32",
+    "word",
+    "unsigned",
+    "32-bit",
+    "integer",
+    "literal",
+    "number",
+    "binary",
+    "ieee754"
+  ],
+  "bugs": {
+    "url": "https://github.com/math-io/float32-from-word/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "12.x.x",
+    "codecov": "1.x.x",
+    "const-max-uint32": "^1.0.2",
+    "const-ninf-float32": "^1.0.0",
+    "const-pinf-float32": "^1.0.0",
+    "istanbul": "^0.4.1",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x",
+    "math-round": "^1.0.0",
+    "tap-spec": "4.x.x",
+    "tape": "4.x.x",
+    "testling": "1.x.x",
+    "utils-repeat-string": "^1.0.3",
+    "utils-right-pad-string": "^1.0.0"
+  },
+  "testling": {
+    "files": [
+      "test/*.js"
+    ],
+    "browsers": [
+      "iexplore/6.0..latest",
+      "firefox/3.0..latest",
+      "firefox/nightly",
+      "chrome/4.0..latest",
+      "chrome/canary",
+      "opera/10.0..latest",
+      "opera/next",
+      "safari/4.0..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
+  },
+  "license": "MIT"
+}
