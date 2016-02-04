@@ -1,6 +1,6 @@
 {
   "name": "math-float32-from-word",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Creates a single-precision floating-point number from an unsigned integer corresponding to an IEEE 754 binary representation.",
   "author": {
     "name": "Athan Reines",
